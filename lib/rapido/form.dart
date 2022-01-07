@@ -2,7 +2,7 @@
 
 import 'package:auto_size_text_field/auto_size_text_field.dart';
 import 'package:flutter/material.dart';
-import './bill_page.dart';
+import 'bill_page.dart';
 // import 'package:flutter_screenutil/flutter_screenutil.dart';
 // // import 'package:pixel_perfect/pixel_perfect.dart';
 // import 'package:contained_tab_bar_view/contained_tab_bar_view.dart';

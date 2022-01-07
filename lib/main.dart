@@ -11,7 +11,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 // import 'package:flutter_rating_stars/flutter_rating_stars.dart';
 // import 'package:fluttericon/octicons_icons.dart';
 // import './bill_page.dart';
-import './form.dart';
+import 'rapido/form.dart';
 
 // This will works always for lock screen Orientation.
 void main() {

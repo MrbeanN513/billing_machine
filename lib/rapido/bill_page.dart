@@ -3,11 +3,11 @@
 import 'package:flutter/material.dart';
 // import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-// import 'package:pixel_perfect/pixel_perfect.dart';
 import 'package:contained_tab_bar_view/contained_tab_bar_view.dart';
 import 'package:community_material_icon/community_material_icon.dart';
 import 'package:flutter_rating_stars/flutter_rating_stars.dart';
 import 'package:fluttericon/octicons_icons.dart';
+// import 'package:pixel_perfect/pixel_perfect.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     // return PixelPerfect(
-    // assetPath: 'assets/1.png'
+    // assetPath: 'assets/1.png',
     return SafeArea(
       child: Scaffold(
         appBar: customAppbar(context),
@@ -347,6 +347,7 @@ Widget image_star_config(Rider_name, imageurl, value, onValueChanged) {
                                     child: Text(
                                       "You rated",
                                       style: TextStyle(
+                                        color:const Color(0xffc7c6c7),
                                         fontSize: 35.h,
                                         fontFamily: 'Open_Sans',
                                         fontStyle: FontStyle.normal,
@@ -367,9 +368,9 @@ Widget image_star_config(Rider_name, imageurl, value, onValueChanged) {
                                       color: color,
                                     ),
                                     maxValue: 5,
-                                    starSpacing: 2,
+                                    starSpacing: 0,
                                     starCount: 5,
-                                    starSize: 62.h,
+                                    starSize: 63.h,
                                     starOffColor: const Color(0xffe7e8ea),
                                     starColor: const Color(0xfffac816),
                                   ),
