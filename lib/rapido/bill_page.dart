@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
     // assetPath: 'assets/1.png',
     return SafeArea(
       child: Scaffold(
-        appBar: customAppbar(context),
+        appBar: customAppbar(context,8.w),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
@@ -870,14 +870,17 @@ Widget static_icon() {
   );
 }
 
-AppBar customAppbar(context) {
+AppBar customAppbar(context,right) {
   return AppBar(
     actions: [
-      IconButton(
-        onPressed: () {},
-        icon: const Icon(
-          CommunityMaterialIcons.ticket_confirmation,
-          color: Colors.black,
+      Padding(
+        padding: EdgeInsets.only(right: right),
+        child: IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            CommunityMaterialIcons.ticket_confirmation,
+            color: Colors.black,
+          ),
         ),
       ),
     ],

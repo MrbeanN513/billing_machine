@@ -1,16 +1,9 @@
-// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, avoid_print
 
-// import 'dart:ffi';
+// ignore_for_file: unused_import, prefer_const_constructors, camel_case_types
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-// import 'package:pixel_perfect/pixel_perfect.dart';
-// import 'package:contained_tab_bar_view/contained_tab_bar_view.dart';
-// import 'package:community_material_icon/community_material_icon.dart';
-// import 'package:flutter_rating_stars/flutter_rating_stars.dart';
-// import 'package:fluttericon/octicons_icons.dart';
-// import './bill_page.dart';
 import 'rapido/form.dart';
 
 // This will works always for lock screen Orientation.
@@ -46,8 +39,101 @@ class MyApp extends StatelessWidget {
             child: widget!,
           );
         },
-        // home: const SafeArea(child: HomePage(title: 'Billing Machine')),
-        home: const SafeArea(child: MyFontPage(title: 'Billing Machine'),),
+        home: SafeArea(child: Myhomepage(title: 'Billing Machine')),
+        routes: <String, WidgetBuilder>{
+          '/Rapido': (BuildContext context) =>
+              MyFontPage(title: 'Billing Machine'),
+          // '/screen2' : (BuildContext context) => new Screen2(),
+          // '/screen3' : (BuildContext context) => new Screen3(),
+          // '/screen4' : (BuildContext context) => new Screen4(),
+        },
+        // home: const SafeArea(child: MyFontPage(title: 'Billing Machine'),),
+      ),
+    );
+  }
+}
+
+class Myhomepage extends StatefulWidget {
+  Myhomepage({Key? key, this.title}) : super(key: key);
+  final String? title;
+  final List<Map<String, String>> users = [
+    {"name": "Rapido", "img": "Online", "Routes": "/Rapido"},
+    {"name": "Uber", "img": "Online", "Routes": "/Rapido"},
+    {"name": "Ola", "img": "Offline", "Routes": "/Rapido"},
+    {"name": "Irctc", "img": "Available", "Routes": "/Rapido"},
+    {"name": "Gpay", "img": "Unavailable", "Routes": "/Rapido"},
+    {"name": "Paytm", "img": "Active", "Routes": "/Rapido"},
+    {"name": "Phone pe", "img": "Not Active", "Routes": "/Rapido"},
+    {"name": "Oyo", "img": "Not Active", "Routes": "/Rapido"}, 
+    {"name": "Redbus", "img": "Not Active", "Routes": "/Rapido"},
+  ];
+
+  @override
+  _MyhomepageState createState() => _MyhomepageState();
+}
+
+class _MyhomepageState extends State<Myhomepage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      
+        appBar: AppBar(
+          title: Text(
+            widget.title!,
+          ),
+        ),
+        body: GridView.builder(
+          gridDelegate:
+              SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+          itemCount: widget.users.length,
+          itemBuilder: (_, index) {
+            final name = widget.users[index]['name'];
+            final routes = widget.users[index]['Routes'];
+            // final img = widget.users[index]['img'];
+            return allu(
+              text: name,
+              routes: routes,
+            );
+          },
+        ));
+  }
+}
+
+class allu extends StatefulWidget {
+  const allu({Key? key, @required this.text, this.routes}) : super(key: key);
+  final String? text;
+  final String? routes;
+
+  @override
+  _alluState createState() => _alluState();
+}
+
+class _alluState extends State<allu> {
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      shadowColor: Colors.grey,
+      elevation: 30,
+      child: InkWell(
+        onTap: () {
+          Navigator.pushNamed(context, widget.routes!);
+        },
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              FlutterLogo(
+                size: 50,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(widget.text!),
+              )
+            ],
+          ),
+          // child: Text(widget.text!),
+        ),
       ),
     );
   }
